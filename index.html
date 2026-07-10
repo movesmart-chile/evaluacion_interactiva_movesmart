@@ -1,0 +1,3132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoveSmart | Evaluación Interactiva</title>
+
+  <!-- Vista previa al compartir en Instagram / WhatsApp / Facebook -->
+  <meta property="og:title" content="MoveSmart | Evaluación Interactiva">
+  <meta property="og:description" content="Rehabilitación personalizada según tu estado, tu vida y tu objetivo.">
+  <meta property="og:image" content="https://cami2025.github.io/seguidores_movesmart/imagenes/evaluacion_interactiva.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://cami2025.github.io/seguidores_movesmart/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MoveSmart | Evaluación Interactiva">
+  <meta name="twitter:description" content="Rehabilitación personalizada según tu estado, tu vida y tu objetivo.">
+  <meta name="twitter:image" content="https://cami2025.github.io/seguidores_movesmart/imagenes/evaluacion_interactiva.webp">
+
+
+  <style>
+    :root{
+      --bg:#09060d;
+      --card:rgba(12,10,16,.72);
+      --card-2:rgba(18,14,22,.82);
+      --border:rgba(255,255,255,.14);
+      --text:#ffffff;
+      --muted:#cfc7d6;
+      --accent:#ff4b18;
+      --accent-2:#ff7a2f;
+      --radius:28px;
+      --shadow:0 26px 70px rgba(0,0,0,.55);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:#07050a;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(5,4,8,.20), rgba(5,4,8,.92)),
+        radial-gradient(circle at 78% 15%, rgba(255,94,31,.22), transparent 24%),
+        radial-gradient(circle at 20% 85%, rgba(255,94,31,.16), transparent 28%),
+        url("fondo-preview-rutina.webp") center center / cover no-repeat;
+      filter:saturate(1.08) brightness(.78);
+      z-index:-2;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.22);
+      backdrop-filter:blur(1px);
+      z-index:-1;
+    }
+
+    .page{
+      width:min(1240px, calc(100% - 34px));
+      margin:0 auto;
+      padding:26px 0 34px;
+    }
+
+    .brand{
+      text-align:center;
+      margin:0 0 18px;
+      font-weight:950;
+      letter-spacing:-.07em;
+      font-size:clamp(2rem, 4vw, 3.15rem);
+      line-height:1;
+    }
+
+    .brand span{color:var(--accent)}
+
+    .hero{
+      text-align:center;
+      margin-bottom:26px;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:clamp(2.4rem, 5vw, 4.6rem);
+      line-height:1.02;
+      letter-spacing:-.06em;
+      font-weight:900;
+    }
+
+    .hero h1 span{color:var(--accent)}
+
+    .hero p{
+      margin:12px auto 0;
+      color:var(--muted);
+      font-size:clamp(1rem, 2vw, 1.35rem);
+    }
+
+    .mini-line{
+      width:54px;
+      height:4px;
+      margin:18px auto 0;
+      border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 22px rgba(255,75,24,.7);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .card{
+      position:relative;
+      min-height:310px;
+      padding:34px;
+      border:1px solid rgba(255,75,24,.38);
+      border-radius:var(--radius);
+      background:
+        linear-gradient(90deg, rgba(5,4,8,.92) 0%, rgba(8,6,12,.72) 44%, rgba(8,6,12,.28) 100%),
+        linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.015)),
+        var(--card-img),
+        var(--card);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:inherit;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,75,24,.22), transparent 32%),
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.34));
+      opacity:.95;
+    }
+
+    .card > *{position:relative; z-index:1}
+
+    .contenedor-1{--card-img:url("contenedor-1.webp");}
+   .contenedor-2{
+  --card-img:url("contenedor-2.webp");
+}
+    .contenedor-3{--card-img:url("contenedor-3.webp");}
+    .contenedor-4{--card-img:url("contenedor-4.webp");}
+
+    .icon{
+      width:68px;
+      height:68px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:2px solid rgba(255,75,24,.62);
+      color:var(--accent);
+      font-size:2rem;
+      box-shadow:0 0 30px rgba(255,75,24,.24);
+      margin-bottom:20px;
+    }
+
+    .card h2{
+      margin:0 0 12px;
+      font-size:clamp(1.65rem, 3vw, 2.4rem);
+      line-height:1.06;
+      letter-spacing:-.045em;
+    }
+
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:1.05rem;
+    }
+
+    .options{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:30px;
+    }
+
+    .option{
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(0,0,0,.34);
+      border-radius:999px;
+      color:#fff;
+      padding:15px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      cursor:pointer;
+      transition:.22s ease;
+      font-weight:800;
+    }
+
+    .option:hover{
+      border-color:rgba(255,75,24,.9);
+      transform:translateY(-2px);
+      box-shadow:0 12px 30px rgba(255,75,24,.18);
+    }
+
+    .quote{
+      margin-top:55px;
+      padding:18px 22px;
+      border-radius:999px;
+      background:rgba(255,255,255,.045);
+      color:#fff;
+      line-height:1.5;
+    }
+
+    .cta-card{
+      background:
+        linear-gradient(90deg, rgba(5,4,8,.94) 0%, rgba(8,6,12,.68) 46%, rgba(8,6,12,.20) 100%),
+        linear-gradient(135deg, rgba(255,75,24,.13), rgba(255,255,255,.02)),
+        var(--card-img),
+        var(--card-2);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .btn{
+      margin-top:34px;
+      width:min(440px,100%);
+      border:0;
+      border-radius:18px;
+      padding:20px 24px;
+      background:linear-gradient(180deg, var(--accent-2), var(--accent));
+      color:#fff;
+      font-size:1.05rem;
+      font-weight:900;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      box-shadow:0 18px 42px rgba(255,75,24,.35);
+      transition:.22s ease;
+    }
+
+    .btn:hover{transform:translateY(-2px); filter:brightness(1.05)}
+
+    .footer{
+      text-align:center;
+      margin-top:28px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    .footer span{color:var(--accent); font-weight:900}
+
+
+    /* RESPUESTAS EN EL MISMO CONTENEDOR */
+    .health-options{
+      align-items:start;
+    }
+
+    .option-box{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .option-box .option{
+      width:100%;
+    }
+
+    .inline-panel{
+      display:none;
+      padding:16px;
+      border-radius:22px;
+      background:rgba(0,0,0,.42);
+      border:1px solid rgba(255,75,24,.35);
+      color:#fff;
+      box-shadow:0 14px 34px rgba(0,0,0,.28);
+    }
+
+    .inline-panel.active{
+      display:block;
+      animation:panelIn .22s ease both;
+    }
+
+    @keyframes panelIn{
+      from{opacity:0; transform:translateY(-6px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .inline-panel label{
+      display:block;
+      color:#fff;
+      font-weight:850;
+      margin-bottom:10px;
+    }
+
+    .inline-panel input[type="range"]{
+      width:100%;
+      accent-color:var(--accent);
+      cursor:pointer;
+    }
+
+    .chip-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .chip{
+      border:1px solid rgba(255,75,24,.55);
+      background:rgba(0,0,0,.45);
+      color:#fff;
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:850;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .chip:hover,
+    .chip.active{
+      background:linear-gradient(180deg, var(--accent-2), var(--accent));
+      border-color:rgba(255,255,255,.18);
+      box-shadow:0 12px 26px rgba(255,75,24,.24);
+    }
+
+    .zone-box{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:10px;
+    }
+
+    .zone-panel{
+      width:260px;
+      max-width:260px;
+      padding:14px;
+      border-radius:22px;
+      background:rgba(0,0,0,.58);
+      border:1px solid rgba(255,75,24,.45);
+      backdrop-filter:blur(8px);
+      box-shadow:0 16px 38px rgba(0,0,0,.38);
+    }
+
+    .zone-panel .chip{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      text-align:left;
+      margin:0;
+      border-radius:16px;
+      padding:10px 12px;
+      font-size:.82rem;
+      line-height:1.25;
+    }
+
+    .zone-panel .chip + .chip{
+      margin-top:8px;
+    }
+
+
+
+    /* MEJORA VISUAL: paneles desplegados con colores diferenciados */
+    .option-box .option,
+    .zone-label{
+      background:rgba(0,0,0,.48);
+    }
+
+    .option-box:has(.inline-panel.active) > .option,
+    .zone-box:has(.zone-panel.active) > .zone-label{
+      background:linear-gradient(180deg, var(--accent-2), var(--accent));
+      border-color:rgba(255,255,255,.16);
+      box-shadow:0 14px 34px rgba(255,75,24,.28);
+    }
+
+    .option-box:has(#dolorPanel.active) > .option{
+      background:linear-gradient(180deg, rgba(255,106,45,.95), rgba(189,52,20,.86));
+    }
+
+    .option-box:has(#rigidezPanel.active) > .option{
+      background:linear-gradient(180deg, rgba(136,102,43,.92), rgba(82,60,28,.86));
+    }
+
+    .option-box:has(#energiaPanel.active) > .option{
+      background:linear-gradient(180deg, rgba(29,140,68,.92), rgba(8,75,42,.86));
+    }
+
+    .option-box:has(#tiempoPanel.active) > .option{
+      background:linear-gradient(180deg, rgba(42,99,226,.92), rgba(17,46,117,.86));
+    }
+
+    #dolorPanel{
+      background:
+        linear-gradient(145deg, rgba(255,83,31,.24), rgba(70,18,9,.78)),
+        rgba(0,0,0,.62);
+      border-color:rgba(255,92,38,.62);
+    }
+
+    #rigidezPanel{
+      background:
+        linear-gradient(145deg, rgba(143,104,45,.28), rgba(53,42,22,.82)),
+        rgba(0,0,0,.62);
+      border-color:rgba(191,137,63,.50);
+    }
+
+    #energiaPanel{
+      background:
+        linear-gradient(145deg, rgba(20,140,67,.30), rgba(6,54,34,.82)),
+        rgba(0,0,0,.62);
+      border-color:rgba(54,213,112,.36);
+    }
+
+    #tiempoPanel{
+      background:
+        linear-gradient(145deg, rgba(43,100,232,.30), rgba(9,34,88,.84)),
+        rgba(0,0,0,.62);
+      border-color:rgba(72,139,255,.40);
+    }
+
+    .inline-panel{
+      backdrop-filter:blur(12px);
+    }
+
+    .inline-panel label{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      font-size:.98rem;
+    }
+
+    .inline-panel label strong{
+      font-size:1.25rem;
+      color:#fff;
+    }
+
+    .inline-panel input[type="range"]{
+      height:6px;
+    }
+
+    .chip-row{
+      gap:12px;
+    }
+
+    .chip{
+      background:rgba(0,0,0,.26);
+      border-color:rgba(255,255,255,.16);
+    }
+
+    .zone-panel{
+      width:300px;
+      max-width:300px;
+      background:
+        linear-gradient(180deg, rgba(255,248,225,.98), rgba(255,227,177,.96));
+      border:1px solid rgba(255,116,42,.72);
+      color:#21140c;
+      box-shadow:
+        0 24px 60px rgba(0,0,0,.58),
+        0 0 0 1px rgba(255,255,255,.14) inset;
+    }
+
+    .zone-panel::before{
+      content:"Patologías comunes";
+      display:block;
+      color:#43220f;
+      font-weight:950;
+      font-size:.86rem;
+      margin:0 0 10px;
+      opacity:.92;
+    }
+
+    .zone-panel .chip{
+      color:#24150d;
+      background:rgba(255,255,255,.42);
+      border:1px solid rgba(95,61,31,.18);
+      box-shadow:0 2px 10px rgba(120,72,25,.08);
+    }
+
+    .zone-panel .chip:hover,
+    .zone-panel .chip.active{
+      color:#fff;
+      background:linear-gradient(180deg, var(--accent-2), var(--accent));
+      border-color:rgba(255,255,255,.35);
+      box-shadow:0 12px 24px rgba(255,75,24,.24);
+    }
+
+    .zone-panel .chip::after{
+      content:"○";
+      margin-left:10px;
+      opacity:.8;
+    }
+
+    .zone-panel .chip.active::after{
+      content:"●";
+      color:#fff;
+    }
+
+
+
+
+    /* FIX: asegurar que el panel abierto quede por encima de los otros botones */
+    .zone-box{
+      position:relative;
+      z-index:60;
+    }
+
+    .hotspot{
+      z-index:10;
+    }
+
+    .hotspot:has(.zone-panel.active){
+      z-index:100;
+    }
+
+    .zone-panel{
+      position:relative;
+      z-index:50;
+    }
+
+    /* MAPA CORPORAL */
+    .zone-map-card{
+      min-height:760px;
+      padding:28px;
+      background:
+        linear-gradient(90deg, rgba(5,4,8,.94) 0%, rgba(8,6,12,.58) 46%, rgba(8,6,12,.08) 100%),
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.01)),
+        var(--card-img),
+        var(--card);
+      background-size:auto 82%;
+      background-position:center bottom 34px;
+      background-repeat:no-repeat;
+    }
+
+    .zone-map-head{
+      width:100%;
+      max-width:260px;
+    }
+
+    .zone-map-help{
+      position:absolute;
+      left:28px;
+      bottom:28px;
+      width:260px;
+      color:#fff;
+      font-size:.95rem;
+      line-height:1.42;
+    }
+
+    .zone-map-help span{
+      color:var(--accent-2);
+      font-weight:900;
+    }
+
+    .zone-points{
+      position:absolute;
+      inset:0;
+      z-index:2;
+      pointer-events:none;
+    }
+
+    .hotspot{
+      position:absolute;
+      left:var(--x);
+      top:var(--y);
+      width:auto;
+      height:auto;
+      transform:translateY(-50%);
+      pointer-events:auto;
+    }
+
+    .zone-label{
+      width:160px;
+      min-width:160px;
+      border:1px solid rgba(255,75,24,.55);
+      background:rgba(0,0,0,.44);
+      color:#fff;
+      border-radius:999px;
+      padding:12px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 12px 34px rgba(0,0,0,.28);
+      transition:.22s ease;
+    }
+
+    .zone-label:hover{
+      transform:translateX(4px);
+      border-color:rgba(255,75,24,.95);
+      box-shadow:0 0 28px rgba(255,75,24,.18);
+    }
+
+    .hotspot-cervical{--x:50%; --y:30%;}
+    .hotspot-hombro{--x:57%; --y:37%;}
+    .hotspot-codo{--x:58%; --y:48%;}
+    .hotspot-lumbar{--x:25%; --y:44%;}
+    .hotspot-cadera{--x:45%; --y:56%;}
+    .hotspot-mano{--x:10%; --y:63%;}
+    .hotspot-rodilla{--x:44%; --y:67%;}
+    .hotspot-tobillo{--x:38%; --y:80%;}
+    .hotspot-pie{--x:43%; --y:90%;}
+
+    @media(max-width:820px){
+      .zone-map-head{
+  display:grid;
+  grid-template-columns:90px 1fr;
+  grid-template-areas:
+    "icon text"
+    "title title";
+  column-gap:18px;
+  align-items:center;
+  max-width:100%;
+}
+
+.zone-map-head .icon{
+  grid-area:icon;
+  margin:0;
+}
+
+.zone-map-head h2{
+  grid-area:title;
+  margin-top:24px;
+}
+
+.zone-map-head p{
+  grid-area:text;
+  margin:0;
+  font-size:1.05rem;
+  line-height:1.45;
+  max-width:260px;
+}
+      .page{
+        width:min(100% - 22px, 720px);
+        padding-top:18px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .card{
+        min-height:auto;
+        padding:24px;
+      }
+
+      .options{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:2.55rem;
+      }
+
+      .zone-map-card{
+        min-height:720px;
+        padding:22px;
+        background-size:auto 82%;
+        background-position:center bottom 38px;
+      }
+
+      .zone-map-head{
+        width:100%;
+        max-width:230px;
+      }
+
+      .zone-map-help{
+        left:22px;
+        bottom:26px;
+        width:280px;
+        font-size:.92rem;
+      }
+
+      .zone-label{
+        width:145px;
+        min-width:145px;
+        padding:10px 13px;
+        font-size:.82rem;
+      }
+
+      .zone-panel{
+        width:min(280px, calc(100vw - 54px));
+        max-width:min(280px, calc(100vw - 54px));
+        padding:12px;
+      }
+
+      .zone-panel .chip{
+        font-size:.78rem;
+        padding:9px 10px;
+      }
+
+
+      .hotspot-cervical{--x:45%; --y:25%;}
+      .hotspot-hombro{--x:53%; --y:32%;}
+      .hotspot-codo{--x:56%; --y:42%;}
+      .hotspot-lumbar{--x:32%; --y:38%;}
+      .hotspot-cadera{--x:43%; --y:50%;}
+      .hotspot-mano{--x:8%; --y:58%;}
+      .hotspot-rodilla{--x:42%; --y:63%;}
+      .hotspot-tobillo{--x:35%; --y:77%;}
+      .hotspot-pie{--x:40%; --y:86%;}
+    }
+
+    /* MODAL CENTRAL DE PATOLOGÍAS - CORRECCIÓN MÓVIL */
+    .zone-overlay{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.10);
+      z-index:9990;
+      backdrop-filter:none;
+      -webkit-backdrop-filter:none;
+    }
+
+    .zone-overlay.active{
+      display:block;
+    }
+
+    .zone-panel::before{
+      content:none !important;
+    }
+
+    .zone-panel-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+      color:#43220f;
+      font-weight:950;
+      font-size:1rem;
+    }
+
+    .zone-close{
+      border:0;
+      border-radius:999px;
+      padding:9px 13px;
+      background:linear-gradient(180deg, var(--accent-2), var(--accent));
+      color:#fff;
+      font-weight:950;
+      cursor:pointer;
+      box-shadow:0 10px 22px rgba(255,75,24,.24);
+      white-space:nowrap;
+    }
+
+   .zone-panel.inline-panel.active{
+  display:flex !important;
+  flex-direction:column;
+
+  position:fixed !important;
+
+  left:50% !important;
+  top:50% !important;
+
+  transform:translate(-50%, -50%) !important;
+
+  width:min(560px, calc(100vw - 24px)) !important;
+  max-width:calc(100vw - 24px) !important;
+
+  max-height:78vh !important;
+
+  overflow-y:auto !important;
+  overscroll-behavior:contain;
+
+  z-index:9999 !important;
+
+  padding:22px !important;
+
+  border-radius:28px !important;
+
+  background:linear-gradient(
+    180deg,
+    #fff5d9 0%,
+    #f6dcaa 100%
+  ) !important;
+
+  color:#21140c !important;
+
+  border:1px solid rgba(255,116,42,.72) !important;
+
+  box-shadow:
+    0 20px 48px rgba(0,0,0,.28) !important;
+
+  filter:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+
+  animation:none !important;
+}
+    .zone-panel.inline-panel.active .chip{
+      width:100% !important;
+      color:#24150d !important;
+      background:rgba(255,255,255,.56) !important;
+      border:1px solid rgba(95,61,31,.18) !important;
+      border-radius:18px !important;
+      padding:13px 16px !important;
+      font-size:.92rem !important;
+      line-height:1.2 !important;
+      margin:0 0 10px 0 !important;
+      box-shadow:0 2px 10px rgba(120,72,25,.08) !important;
+    }
+
+    .zone-panel.inline-panel.active .chip.active,
+    .zone-panel.inline-panel.active .chip:hover{
+      color:#fff !important;
+      background:linear-gradient(180deg, var(--accent-2), var(--accent)) !important;
+      border-color:rgba(255,255,255,.35) !important;
+      box-shadow:0 12px 24px rgba(255,75,24,.24) !important;
+    }
+
+   @media(max-width:820px){
+
+  .zone-overlay{
+    background:rgba(0,0,0,.06);
+  }
+
+  .zone-panel.inline-panel.active{
+
+    width:calc(100vw - 18px) !important;
+    max-width:calc(100vw - 18px) !important;
+
+    left:50% !important;
+    top:50% !important;
+
+    transform:translate(-50%, -50%) !important;
+
+    max-height:74vh !important;
+
+    padding:18px !important;
+
+    border-radius:24px !important;
+  }
+
+  .zone-panel-header{
+    font-size:.95rem;
+    margin-bottom:12px;
+  }
+
+  .zone-close{
+    padding:8px 12px;
+    font-size:.84rem;
+  }
+
+  .zone-panel.inline-panel.active .chip{
+    width:100% !important;
+    font-size:.92rem !important;
+    line-height:1.25 !important;
+    padding:14px 16px !important;
+    border-radius:18px !important;
+  }
+
+}
+  
+/* =========================================================
+   FIX FINAL: Panel de patologías centrado y sin cortes
+   ========================================================= */
+
+.zone-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.06);
+  z-index:9990;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+
+.zone-overlay.active{
+  display:block;
+}
+
+.zone-panel::before{
+  content:none !important;
+}
+
+.zone-panel.inline-panel{
+  display:none;
+}
+
+/* Cuando se abre, el panel se mueve con JS al <body>.
+   Así ya no queda atrapado dentro del hotspot ni se corta. */
+.zone-panel.inline-panel.active{
+  display:flex !important;
+  flex-direction:column !important;
+
+  position:fixed !important;
+  left:50vw !important;
+  top:50vh !important;
+  transform:translate(-50%, -50%) !important;
+
+  width:min(560px, calc(100vw - 24px)) !important;
+  max-width:calc(100vw - 24px) !important;
+  max-height:78vh !important;
+
+  overflow-y:auto !important;
+  overscroll-behavior:contain !important;
+
+  z-index:9999 !important;
+
+  padding:22px !important;
+  border-radius:28px !important;
+
+  background:linear-gradient(180deg, #fff5d9 0%, #f6dcaa 100%) !important;
+  color:#21140c !important;
+  border:1px solid rgba(255,116,42,.72) !important;
+  box-shadow:0 20px 48px rgba(0,0,0,.28) !important;
+
+  filter:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  animation:none !important;
+}
+
+.zone-panel-header{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  margin-bottom:16px !important;
+  color:#43220f !important;
+  font-weight:950 !important;
+  font-size:1.15rem !important;
+}
+
+.zone-close{
+  border:0 !important;
+  border-radius:999px !important;
+  padding:10px 16px !important;
+  background:linear-gradient(180deg, var(--accent-2), var(--accent)) !important;
+  color:#fff !important;
+  font-weight:950 !important;
+  cursor:pointer !important;
+  box-shadow:0 10px 22px rgba(255,75,24,.24) !important;
+  white-space:nowrap !important;
+}
+
+.zone-panel.inline-panel.active .chip{
+  width:100% !important;
+  color:#24150d !important;
+  background:rgba(255,255,255,.62) !important;
+  border:1px solid rgba(95,61,31,.18) !important;
+  border-radius:20px !important;
+  padding:15px 18px !important;
+  font-size:1rem !important;
+  line-height:1.25 !important;
+  margin:0 0 12px 0 !important;
+  box-shadow:0 2px 10px rgba(120,72,25,.08) !important;
+}
+
+.zone-panel.inline-panel.active .chip.active,
+.zone-panel.inline-panel.active .chip:hover{
+  color:#fff !important;
+  background:linear-gradient(180deg, var(--accent-2), var(--accent)) !important;
+  border-color:rgba(255,255,255,.35) !important;
+  box-shadow:0 12px 24px rgba(255,75,24,.24) !important;
+}
+
+@media(max-width:820px){
+  .zone-overlay{
+    background:rgba(0,0,0,.04) !important;
+  }
+
+  .zone-panel.inline-panel.active{
+    width:calc(100vw - 18px) !important;
+    max-width:calc(100vw - 18px) !important;
+    max-height:74vh !important;
+    left:50vw !important;
+    top:50vh !important;
+    transform:translate(-50%, -50%) !important;
+    padding:18px !important;
+    border-radius:24px !important;
+  }
+
+  .zone-panel-header{
+    font-size:.98rem !important;
+    margin-bottom:12px !important;
+  }
+
+  .zone-close{
+    padding:8px 12px !important;
+    font-size:.84rem !important;
+  }
+
+  .zone-panel.inline-panel.active .chip{
+    width:100% !important;
+    font-size:.92rem !important;
+    line-height:1.25 !important;
+    padding:14px 16px !important;
+    border-radius:18px !important;
+  }
+}
+
+
+/* =========================================================
+   RESULTADO MOVESMART - CONTENEDOR DE RECOMENDACIÓN
+   ========================================================= */
+.result-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:12000;
+  background:rgba(0,0,0,.48);
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.result-overlay.active{
+  display:flex;
+}
+
+.result-box{
+  position:relative;
+  width:min(680px, calc(100vw - 24px));
+  max-height:86vh;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:26px;
+  border-radius:30px;
+  background:linear-gradient(180deg, #fff5d9 0%, #f6dcaa 100%);
+  color:#21140c;
+  border:1px solid rgba(255,116,42,.74);
+  box-shadow:0 28px 70px rgba(0,0,0,.45);
+}
+
+.result-box h2{
+  margin:0 54px 20px 0;
+  font-size:clamp(1.65rem, 4vw, 2.15rem);
+  line-height:1.05;
+  letter-spacing:-.045em;
+  font-weight:950;
+  color:#24150d;
+}
+
+.result-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:46px;
+  height:46px;
+  border:0;
+  border-radius:16px;
+  background:linear-gradient(180deg, var(--accent-2), var(--accent));
+  color:#fff;
+  font-size:1.65rem;
+  font-weight:950;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 12px 24px rgba(255,75,24,.28);
+}
+
+.result-card{
+  background:rgba(255,255,255,.48);
+  border:1px solid rgba(95,61,31,.13);
+  border-radius:24px;
+  padding:18px;
+  margin-top:16px;
+  box-shadow:0 3px 14px rgba(120,72,25,.08);
+}
+
+.result-card h3{
+  margin:0 0 8px;
+  color:#24150d;
+  font-size:1.15rem;
+  font-weight:950;
+}
+
+.result-card p{
+  margin:0;
+  color:#3a261a;
+  line-height:1.5;
+  font-size:1rem;
+}
+
+.result-label{
+  color:var(--accent);
+  font-weight:950;
+  font-size:.9rem;
+  margin-bottom:4px;
+}
+
+.result-value{
+  color:#21140c;
+  font-size:1.45rem;
+  font-weight:950;
+  margin-bottom:14px;
+  line-height:1.12;
+}
+
+.result-placeholder{
+  margin-top:14px;
+  padding:14px;
+  border-radius:18px;
+  border:1px dashed rgba(255,75,24,.38);
+  background:rgba(255,255,255,.30);
+  color:#4b382d;
+  line-height:1.45;
+}
+
+.result-btn{
+  width:100%;
+  margin-top:20px;
+}
+
+body.no-scroll{
+  overflow:hidden;
+  touch-action:none;
+}
+
+@media(max-width:820px){
+  .result-overlay{
+    padding:11px;
+  }
+
+  .result-box{
+    width:calc(100vw - 22px);
+    max-height:84vh;
+    padding:20px;
+    border-radius:26px;
+  }
+
+  .result-close{
+    width:42px;
+    height:42px;
+    top:14px;
+    right:14px;
+  }
+
+  .result-card{
+    padding:16px;
+    border-radius:22px;
+  }
+
+  .result-value{
+    font-size:1.25rem;
+  }
+}
+
+/* =========================================================
+   RUTINA GENERADA - FASES
+   ========================================================= */
+.routine-summary{
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:18px;
+  background:rgba(255,255,255,.36);
+  border:1px solid rgba(255,75,24,.18);
+  color:#3a261a;
+  line-height:1.45;
+  font-weight:750;
+}
+
+.routine-phase{
+  margin-top:14px;
+  padding:14px;
+  border-radius:20px;
+  background:rgba(255,255,255,.50);
+  border:1px solid rgba(95,61,31,.12);
+}
+
+.routine-phase h4{
+  margin:0 0 10px;
+  color:#24150d;
+  font-size:1rem;
+  font-weight:950;
+}
+
+.routine-phase ul{
+  margin:0;
+  padding-left:18px;
+}
+
+.routine-phase li{
+  margin:8px 0;
+  color:#3a261a;
+  line-height:1.35;
+  font-weight:750;
+}
+
+.routine-warning{
+  margin-top:14px;
+  padding:12px 14px;
+  border-radius:18px;
+  background:rgba(255,75,24,.10);
+  border:1px solid rgba(255,75,24,.25);
+  color:#3a261a;
+  line-height:1.45;
+  font-weight:800;
+}
+
+.result-card .btn{
+  margin-top:18px;
+}
+
+/* =========================================================
+   CONFIRMACIÓN DE SLIDERS 5/10
+   ========================================================= */
+.confirm-btn{
+  margin-top:12px;
+  width:100%;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  padding:12px 14px;
+  background:rgba(255,255,255,.10);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.confirm-btn:hover,
+.confirm-btn.confirmed{
+  background:linear-gradient(180deg, var(--accent-2), var(--accent));
+  border-color:rgba(255,255,255,.25);
+  box-shadow:0 12px 26px rgba(255,75,24,.22);
+}
+
+.confirm-hint{
+  margin-top:8px;
+  color:rgba(255,255,255,.78);
+  font-size:.86rem;
+  line-height:1.35;
+}
+
+
+/* =========================================================
+   DESCANSOS EN RUTINA
+   ========================================================= */
+.rest-note{
+  display:block;
+  margin-top:4px;
+  color:#7a5944;
+  font-size:.88rem;
+  font-weight:800;
+  line-height:1.25;
+}
+
+/* =========================================================
+   ACCESO SEGUIDORES - IDENTIFICACIÓN
+   ========================================================= */
+.access-overlay{
+  position:fixed;
+  inset:0;
+  z-index:15000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:
+    linear-gradient(180deg, rgba(5,4,8,.48), rgba(5,4,8,.92)),
+    rgba(0,0,0,.58);
+  backdrop-filter:blur(8px);
+}
+
+.access-box{
+  width:min(560px, calc(100vw - 24px));
+  padding:28px;
+  border-radius:32px;
+  background:
+    linear-gradient(145deg, rgba(18,14,22,.94), rgba(7,5,10,.92));
+  border:1px solid rgba(255,75,24,.45);
+  box-shadow:0 28px 80px rgba(0,0,0,.58);
+  color:#fff;
+}
+
+.access-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(255,75,24,.14);
+  border:1px solid rgba(255,75,24,.34);
+  color:#fff;
+  font-size:.88rem;
+  font-weight:900;
+  margin-bottom:18px;
+}
+
+.access-box h2{
+  margin:0;
+  font-size:clamp(1.9rem, 5vw, 3rem);
+  line-height:1.02;
+  letter-spacing:-.055em;
+  font-weight:950;
+}
+
+.access-box h2 span{
+  color:var(--accent);
+}
+
+.access-box p{
+  margin:14px 0 22px;
+  color:var(--muted);
+  line-height:1.5;
+  font-size:1.02rem;
+}
+
+.access-form{
+  display:grid;
+  gap:14px;
+}
+
+.access-field label{
+  display:block;
+  font-weight:900;
+  margin-bottom:8px;
+  color:#fff;
+}
+
+.access-field input{
+  width:100%;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:18px;
+  padding:16px 17px;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  outline:none;
+  font-size:1rem;
+}
+
+.access-field input::placeholder{
+  color:rgba(255,255,255,.52);
+}
+
+.access-field input:focus{
+  border-color:rgba(255,75,24,.86);
+  box-shadow:0 0 0 4px rgba(255,75,24,.14);
+}
+
+.access-note{
+  margin-top:12px;
+  color:rgba(255,255,255,.72);
+  font-size:.88rem;
+  line-height:1.4;
+}
+
+.access-error{
+  display:none;
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:16px;
+  background:rgba(255,75,24,.14);
+  border:1px solid rgba(255,75,24,.34);
+  color:#fff;
+  font-weight:800;
+}
+
+.access-error.active{
+  display:block;
+}
+
+@media(max-width:820px){
+  .access-box{
+    padding:22px;
+    border-radius:28px;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ACCESO SEGUIDORES -->
+  <div class="access-overlay" id="accessOverlay">
+    <div class="access-box" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+      <div class="access-badge">⚡ Acceso gratuito para seguidores</div>
+      <h2 id="accessTitle">Primero, déjame conocerte</h2>
+      <p>
+        Así podré revisar cómo respondiste la mini evaluación MoveSmart y entregarte una orientación más personalizada si la necesitas.
+      </p>
+
+      <div class="access-form">
+        <div class="access-field">
+          <label for="nombreInput">Nombre</label>
+          <input id="nombreInput" type="text" placeholder="Ej: Camila" autocomplete="name">
+        </div>
+
+        <div class="access-field">
+          <label for="instagramInput">Instagram</label>
+          <input id="instagramInput" type="text" placeholder="@tuusuario" autocomplete="off">
+        </div>
+
+        <button class="btn" type="button" onclick="entrarAlEbook()">
+          Entrar a la evaluación interactiva <span>›</span>
+        </button>
+
+        <div class="access-error" id="accessError">
+          Completa tu nombre e Instagram para continuar.
+        </div>
+
+        <div class="access-note">
+          Tus respuestas se guardarán solo para hacer seguimiento de tu evaluación MoveSmart.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="zone-overlay" id="zoneOverlay" onclick="closeAllZonePanels()"></div>
+  <main class="page">
+    <div class="brand">Move<span>Smart</span></div>
+
+    <section class="hero">
+      <h1>Rehabilitación <span>personalizada</span></h1>
+      <p>según tu estado, tu vida y tu objetivo.</p>
+      <div class="mini-line"></div>
+    </section>
+
+    <section class="grid">
+      <article class="card contenedor-1">
+        <div class="icon">♡</div>
+        <h2>¿Cómo te<br>sientes hoy?</h2>
+        <p>Tu estado cambia cada día. El plan también.</p>
+
+        <div class="options health-options">
+          <div class="option-box">
+            <button class="option" type="button" onclick="togglePanel('dolorPanel')">
+              Dolor <span>›</span>
+            </button>
+            <div class="inline-panel" id="dolorPanel">
+              <label>Escala de dolor: <strong id="dolorValue">5</strong>/10</label>
+              <input type="range" min="0" max="10" value="5" oninput="actualizarValor('dolorValue', this.value)">
+              <button class="confirm-btn" id="confirmDolorBtn" type="button" onclick="confirmarSlider('dolor')">
+                Confirmar dolor 5/10
+              </button>
+              <div class="confirm-hint">
+                Si tu dolor realmente es 5/10, confirma sin mover la barra.
+              </div>
+            </div>
+          </div>
+
+          <div class="option-box">
+            <button class="option" type="button" onclick="togglePanel('rigidezPanel')">
+              Rigidez <span>›</span>
+            </button>
+            <div class="inline-panel" id="rigidezPanel">
+              <label>Escala de rigidez: <strong id="rigidezValue">5</strong>/10</label>
+              <input type="range" min="0" max="10" value="5" oninput="actualizarValor('rigidezValue', this.value)">
+              <button class="confirm-btn" id="confirmRigidezBtn" type="button" onclick="confirmarSlider('rigidez')">
+                Confirmar rigidez 5/10
+              </button>
+              <div class="confirm-hint">
+                Si tu rigidez realmente es 5/10, confirma sin mover la barra.
+              </div>
+            </div>
+          </div>
+
+          <div class="option-box">
+            <button class="option" type="button" onclick="togglePanel('energiaPanel')">
+              Energía <span>›</span>
+            </button>
+            <div class="inline-panel" id="energiaPanel">
+              <div class="chip-row">
+                <button type="button" class="chip" onclick="selectChip(this)">Baja</button>
+                <button type="button" class="chip" onclick="selectChip(this)">Media</button>
+                <button type="button" class="chip" onclick="selectChip(this)">Alta</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-box">
+            <button class="option" type="button" onclick="togglePanel('tiempoPanel')">
+              Tiempo disponible <span>›</span>
+            </button>
+            <div class="inline-panel" id="tiempoPanel">
+              <div class="chip-row">
+                <button type="button" class="chip" onclick="selectChip(this)">10 min</button>
+                <button type="button" class="chip" onclick="selectChip(this)">20 min</button>
+                <button type="button" class="chip" onclick="selectChip(this)">45 min</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card contenedor-2 zone-map-card">
+        <div class="zone-map-head">
+          <div class="icon">⌾</div>
+          <h2>Explora<br>tu zona</h2>
+          <p>Cada zona puede necesitar un enfoque distinto.</p>
+        </div>
+
+        <div class="zone-map-help">
+          Toca una zona para <span>entender</span> lo que puede estar pasando.
+        </div>
+
+        <div class="zone-points">
+          <div class="hotspot hotspot-cervical">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('cervicalPanel')">
+                Cervical <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="cervicalPanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor muscular / tensión cervical</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Rigidez al mover el cuello</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Cervicobraquialgia</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor postural</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+          <div class="hotspot hotspot-hombro">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('hombroPanel')">
+                Hombro <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="hombroPanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Tendinopatía manguito rotador</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Pinzamiento subacromial</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Rigidez / hombro congelado</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor al levantar el brazo</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+          <div class="hotspot hotspot-codo">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('codoPanel')">
+                Codo <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="codoPanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Codo de tenista</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Codo de golfista</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Sobrecarga por agarre</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Rigidez del codo</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+          <div class="hotspot hotspot-lumbar">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('lumbarPanel')">
+                Lumbar <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="lumbarPanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Lumbalgia muscular</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Rigidez lumbar</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor al estar sentada</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor al inclinarme</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor que baja a pierna</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+          <div class="hotspot hotspot-cadera">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('caderaPanel')">
+                Cadera <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="caderaPanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Tendinopatía glútea</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor lateral de cadera</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Rigidez de cadera</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor al correr</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+          <div class="hotspot hotspot-mano">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('manoPanel')">
+                Mano <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="manoPanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Tendinitis muñeca</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor por sobreuso</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Rigidez dedos o muñeca</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Hormigueo / túnel carpiano</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+          <div class="hotspot hotspot-rodilla">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('rodillaPanel')">
+                Rodilla <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="rodillaPanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor patelofemoral</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Tendinopatía rotuliana</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Sobrecarga por correr</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Molestia al bajar escaleras</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+          <div class="hotspot hotspot-tobillo">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('tobilloPanel')">
+                Tobillo <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="tobilloPanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Esguince previo / inestabilidad</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Tendinopatía</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Rigidez de tobillo</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor al apoyar</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+          <div class="hotspot hotspot-pie">
+            <div class="zone-box">
+              <button class="zone-label" type="button" onclick="togglePanel('piePanel')">
+                Pie <span>›</span>
+              </button>
+              <div class="inline-panel zone-panel" id="piePanel">
+                <div class="zone-panel-header">
+                  <span>Patologías comunes</span>
+                  <button class="zone-close" type="button" onclick="closeAllZonePanels()">× Cerrar</button>
+                </div>
+                <button class="chip" type="button" onclick="selectChip(this)">Fascitis plantar</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Dolor arco plantar</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Metatarsalgia</button>
+                <button class="chip" type="button" onclick="selectChip(this)">Rigidez del pie</button>
+                <button class="chip" type="button" onclick="selectChip(this)">No estoy segura / otro</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card contenedor-3">
+        <div class="icon">☆</div>
+        <h2>Lo importante</h2>
+        <p>Dos personas con la misma lesión pueden necesitar caminos distintos.</p>
+
+        <div class="quote">
+          No es una rutina genérica.<br>
+          Es tu plan, para tu vida real.
+        </div>
+      </article>
+
+      <article class="card cta-card contenedor-4">
+        <div class="icon">⚑</div>
+        <h2>Tu siguiente<br>paso</h2>
+        <p>Pequeños pasos. Elegidos para ti.</p>
+
+        <a
+          class="btn"
+          href="https://cami2025.github.io/movesmart-web/evaluacion-gratuita-movesmart.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="text-decoration:none;"
+        >
+          Quiero mi evaluación gratis <span>›</span>
+        </a>
+
+        <p style="margin-top:22px;font-size:.95rem">100% personalizado y basado en evidencia</p>
+      </article>
+    </section>
+
+    <div class="footer">
+      Avanza a tu ritmo. <span>Nosotros te acompañamos.</span>
+    </div>
+  </main>
+
+  <!-- RESULTADO MOVESMART -->
+  <div class="result-overlay" id="resultOverlay" onclick="if(event.target === this) closeResult()">
+    <div class="result-box" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <button class="result-close" type="button" onclick="closeResult()">×</button>
+
+      <h2 id="resultTitle">Tu recomendación MoveSmart</h2>
+
+      <div class="result-card">
+        <div class="result-label">Zona elegida</div>
+        <div class="result-value" id="resultZona">Zona</div>
+
+        <div class="result-label">Posible problema</div>
+        <div class="result-value" id="resultPatologia">Patología</div>
+      </div>
+
+      <div class="result-card">
+        <h3>¿Por qué esta rutina?</h3>
+        <p id="resultTexto">
+          Vamos a priorizar movilidad, control y progresión según tu situación actual.
+        </p>
+      </div>
+
+      <div class="result-card" id="rutinaCard">
+        <h3>Tu rutina sugerida</h3>
+        <div id="rutinaContenido">
+          <p>Selecciona una opción cervical para generar tu rutina.</p>
+        </div>
+
+        <p style="margin-top:18px; text-align:center; font-weight:700; line-height:1.5; color:#3a261a;">
+          ¿Quieres que revise tu caso con más detalle?<br>
+          Escríbeme por Instagram y cuéntame que ya completaste tu evaluación MoveSmart.
+        </p>
+
+        <a
+          class="btn"
+          href="https://ig.me/m/movesmart.plan"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="text-decoration:none;"
+        >
+          Escribir a MoveSmart <span>›</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycMEHCb2QfPQwAJ_RJYLqtbTOp6uwbDNlALJYfXnTzVHoQy6eJk0RT0BMA0XzJxAcEPg/exec";
+
+    const userState = {
+      sessionId: "movesmart_" + Date.now() + "_" + Math.random().toString(36).slice(2),
+      estado: "inicio",
+      nombre: "",
+      instagram: "",
+      dolor: 5,
+      rigidez: 5,
+      dolorRespondido: false,
+      rigidezRespondido: false,
+      energia: "",
+      tiempo: "",
+      zona: "",
+      patologia: ""
+    };
+
+    const zonasPorPanel = {
+      cervicalPanel: "Cervical",
+      hombroPanel: "Hombro",
+      codoPanel: "Codo",
+      lumbarPanel: "Lumbar",
+      caderaPanel: "Cadera",
+      manoPanel: "Mano",
+      rodillaPanel: "Rodilla",
+      tobilloPanel: "Tobillo",
+      piePanel: "Pie"
+    };
+
+    const rutinasCervical = {
+      "Dolor muscular / tensión cervical": {
+        porque: "Esta rutina se enfoca en bajar tensión del cuello y trapecios, descargar la musculatura y activar suavemente la zona escapular.",
+        calentamiento: [
+          "Respiración diafragmática — 2 x 5 respiraciones",
+          "Movilidad cervical suave en sí/no — 1 x 6 por lado",
+          "Círculos de hombros lentos — 2 x 8"
+        ],
+        central: [
+          "Isométrico cervical frontal suave — 2 x 10 segundos",
+          "Isométrico cervical lateral suave — 2 x 10 segundos por lado",
+          "Retracción cervical apoyada en pared — 2 x 8"
+        ],
+        estiramientos: [
+          "Trapecio superior — 25 segundos por lado",
+          "Elevador de la escápula — 25 segundos por lado",
+          "Pectoral en pared — 25 segundos por lado"
+        ]
+      },
+
+      "Rigidez al mover el cuello": {
+        porque: "Esta rutina prioriza movilidad cervical controlada y liberación suave del rango, sin buscar fuerza intensa al inicio.",
+        calentamiento: [
+          "Respiración lenta nasal — 2 x 5 respiraciones",
+          "Rotación cervical suave — 2 x 6 por lado",
+          "Inclinación cervical suave — 2 x 6 por lado"
+        ],
+        central: [
+          "Retracción cervical lenta con pausa — 2 x 8",
+          "Rotación cervical con pausa al centro — 2 x 5 por lado",
+          "Extensión torácica en pared — 2 x 8"
+        ],
+        estiramientos: [
+          "Trapecio superior — 25 segundos por lado",
+          "Elevador de la escápula — 25 segundos por lado",
+          "Pectoral en pared — 20 segundos por lado"
+        ]
+      },
+
+      "Cervicobraquialgia": {
+        porque: "Esta rutina es más conservadora. Busca bajar irritación y moverte sin provocar síntomas hacia hombro, brazo o mano.",
+        calentamiento: [
+          "Respiración diafragmática — 2 x 5 respiraciones",
+          "Retracción cervical muy suave — 2 x 6",
+          "Movilidad de hombros sin dolor — 2 x 8"
+        ],
+        central: [
+          "Retracción cervical con pausa corta — 2 x 6",
+          "Deslizamiento neural suave — 2 x 5 por lado",
+          "Activación escapular sin tensión — 2 x 10"
+        ],
+        estiramientos: [
+          "Pectoral suave — 20 segundos por lado",
+          "Trapecio suave sin forzar — 20 segundos por lado",
+          "Elevador de la escápula suave — 20 segundos por lado"
+        ]
+      },
+
+      "Dolor postural": {
+        porque: "Esta rutina apunta a compensar posturas mantenidas, activar espalda alta y mejorar el control cervical durante el día.",
+        calentamiento: [
+          "Respiración lenta — 2 x 5 respiraciones",
+          "Retracción cervical — 2 x 8",
+          "Movilidad torácica en pared — 2 x 8"
+        ],
+        central: [
+          "Wall slides — 2 x 10",
+          "Remo con banda — 2 x 12",
+          "Pull apart con banda — 2 x 10"
+        ],
+        estiramientos: [
+          "Pectoral en pared — 25 segundos por lado",
+          "Trapecio superior — 20 segundos por lado",
+          "Estiramiento suave de cuello lateral — 20 segundos por lado"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Esta es una rutina general, segura y de baja irritación para molestias cervicales que no están claras o cambian durante el día.",
+        calentamiento: [
+          "Respiración lenta — 2 x 5 respiraciones",
+          "Movilidad cervical suave — 1 x 6 por lado",
+          "Círculos de hombros — 1 x 8"
+        ],
+        central: [
+          "Retracción cervical suave — 2 x 6",
+          "Wall slides suaves — 2 x 8",
+          "Isométrico cervical suave — 2 x 8 segundos"
+        ],
+        estiramientos: [
+          "Trapecio superior — 20 segundos por lado",
+          "Elevador de la escápula — 20 segundos por lado",
+          "Pectoral en pared — 20 segundos por lado"
+        ]
+      }
+    };
+
+
+    const rutinasHombro = {
+      "Tendinopatía manguito rotador": {
+        porque: "Esta rutina busca activar el hombro de forma progresiva, mejorar la tolerancia del manguito rotador y reducir la sensibilidad al movimiento.",
+        calentamiento: [
+          "Péndulos de hombro — 2 x 20 segundos",
+          "Círculos de hombro suaves — 2 x 8",
+          "Movilidad escapular — 2 x 8"
+        ],
+        central: [
+          "Rotación externa isométrica — 3 x 15 segundos",
+          "Retracción escapular — 2 x 12",
+          "Wall slides — 2 x 8"
+        ],
+        estiramientos: [
+          "Pectoral en pared — 25 segundos por lado",
+          "Deltoides posterior — 25 segundos por lado",
+          "Movilidad suave de hombro — 30 segundos"
+        ]
+      },
+
+      "Pinzamiento subacromial": {
+        porque: "Esta rutina prioriza mejorar el control escapular, disminuir la sobrecarga al elevar el brazo y trabajar en rangos cómodos.",
+        calentamiento: [
+          "Péndulos suaves — 2 x 20 segundos",
+          "Movilidad escapular — 2 x 10",
+          "Respiración costal — 2 x 5 respiraciones"
+        ],
+        central: [
+          "Retracción escapular — 2 x 12",
+          "Wall slides parciales — 2 x 8",
+          "Rotación externa con banda suave — 2 x 10"
+        ],
+        estiramientos: [
+          "Pectoral menor — 25 segundos por lado",
+          "Dorsal ancho — 25 segundos por lado",
+          "Deltoides posterior — 20 segundos por lado"
+        ]
+      },
+
+      "Rigidez / hombro congelado": {
+        porque: "El objetivo principal es recuperar movilidad de manera gradual, sin forzar rangos dolorosos ni irritar el hombro.",
+        calentamiento: [
+          "Péndulos — 2 x 30 segundos",
+          "Deslizamientos en mesa — 2 x 8",
+          "Movilidad asistida con palo — 2 x 6"
+        ],
+        central: [
+          "Flexión asistida con palo — 2 x 8",
+          "Abducción asistida — 2 x 8",
+          "Rotación externa asistida — 2 x 8"
+        ],
+        estiramientos: [
+          "Pectoral suave — 20 segundos por lado",
+          "Dorsal ancho suave — 20 segundos por lado",
+          "Movilidad final cómoda — 30 segundos"
+        ]
+      },
+
+      "Dolor al levantar el brazo": {
+        porque: "Esta rutina busca mejorar el control del hombro y disminuir la carga sobre estructuras sensibles durante la elevación del brazo.",
+        calentamiento: [
+          "Péndulos suaves — 2 x 20 segundos",
+          "Movilidad escapular — 2 x 8",
+          "Retracción escapular — 2 x 8"
+        ],
+        central: [
+          "Wall slides en rango cómodo — 2 x 8",
+          "Rotación externa isométrica — 2 x 15 segundos",
+          "Elevación frontal parcial — 2 x 8"
+        ],
+        estiramientos: [
+          "Pectoral en pared — 25 segundos por lado",
+          "Deltoides posterior — 20 segundos por lado",
+          "Movilidad suave de hombro — 20 segundos"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Esta es una rutina general para molestias de hombro cuando la causa específica no está clara o cambia durante el día.",
+        calentamiento: [
+          "Péndulos suaves — 2 x 20 segundos",
+          "Movilidad escapular — 2 x 8",
+          "Círculos de hombro — 2 x 8"
+        ],
+        central: [
+          "Retracción escapular — 2 x 10",
+          "Wall slides suaves — 2 x 8",
+          "Rotación externa suave — 2 x 10"
+        ],
+        estiramientos: [
+          "Pectoral — 20 segundos por lado",
+          "Deltoides posterior — 20 segundos por lado",
+          "Movilidad cómoda — 20 segundos"
+        ]
+      }
+    };
+
+
+
+    const rutinasCodo = {
+      "Codo de tenista": {
+        porque: "Esta rutina busca disminuir la sobrecarga de los extensores de muñeca y mejorar la tolerancia del codo al esfuerzo.",
+        calentamiento: [
+          "Movilidad de muñeca — 2 x 10",
+          "Abrir y cerrar mano — 2 x 15",
+          "Pronación y supinación suave — 2 x 8"
+        ],
+        central: [
+          "Extensión de muñeca isométrica — 3 x 15 segundos",
+          "Agarre suave con pelota — 2 x 12",
+          "Control de antebrazo — 2 x 10"
+        ],
+        estiramientos: [
+          "Extensores de muñeca — 25 segundos por lado",
+          "Flexores de muñeca — 25 segundos por lado",
+          "Movilidad suave de codo — 20 segundos"
+        ]
+      },
+
+      "Codo de golfista": {
+        porque: "Esta rutina está orientada a descargar los flexores del antebrazo y recuperar función sin irritar el tendón.",
+        calentamiento: [
+          "Movilidad de muñeca — 2 x 10",
+          "Abrir y cerrar mano — 2 x 15",
+          "Rotaciones suaves de antebrazo — 2 x 8"
+        ],
+        central: [
+          "Flexión de muñeca isométrica — 3 x 15 segundos",
+          "Agarre suave con pelota — 2 x 12",
+          "Control de antebrazo — 2 x 10"
+        ],
+        estiramientos: [
+          "Flexores de muñeca — 25 segundos por lado",
+          "Extensores de muñeca — 25 segundos por lado",
+          "Movilidad suave de codo — 20 segundos"
+        ]
+      },
+
+      "Sobrecarga por agarre": {
+        porque: "Esta rutina busca disminuir la fatiga acumulada del antebrazo y mejorar la recuperación del agarre.",
+        calentamiento: [
+          "Movilidad de dedos — 2 x 15",
+          "Movilidad de muñeca — 2 x 10",
+          "Pronación y supinación — 2 x 8"
+        ],
+        central: [
+          "Agarre suave con pelota — 2 x 15",
+          "Extensión de dedos con banda — 2 x 12",
+          "Control de muñeca — 2 x 10"
+        ],
+        estiramientos: [
+          "Flexores de muñeca — 25 segundos por lado",
+          "Extensores de muñeca — 25 segundos por lado",
+          "Sacudidas suaves de brazos — 20 segundos"
+        ]
+      },
+
+      "Rigidez del codo": {
+        porque: "El objetivo es recuperar movilidad del codo y antebrazo sin provocar molestias.",
+        calentamiento: [
+          "Flexión y extensión de codo — 2 x 10",
+          "Pronación y supinación — 2 x 8",
+          "Movilidad de muñeca — 2 x 8"
+        ],
+        central: [
+          "Flexión activa de codo — 2 x 10",
+          "Extensión activa de codo — 2 x 10",
+          "Control de antebrazo — 2 x 8"
+        ],
+        estiramientos: [
+          "Flexores de muñeca — 20 segundos por lado",
+          "Extensores de muñeca — 20 segundos por lado",
+          "Movilidad final cómoda — 20 segundos"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Esta es una rutina general para molestias de codo cuando la causa específica no está clara o cambia durante el día.",
+        calentamiento: [
+          "Movilidad de muñeca — 2 x 8",
+          "Flexión y extensión de codo — 2 x 8",
+          "Pronación y supinación — 2 x 8"
+        ],
+        central: [
+          "Agarre suave — 2 x 10",
+          "Control de muñeca — 2 x 10",
+          "Movilidad activa de codo — 2 x 8"
+        ],
+        estiramientos: [
+          "Flexores de muñeca — 20 segundos por lado",
+          "Extensores de muñeca — 20 segundos por lado",
+          "Movilidad cómoda — 20 segundos"
+        ]
+      }
+    };
+
+    const rutinasCadera = {
+      "Tendinopatía glútea": {
+        porque: "Esta rutina busca mejorar la tolerancia de los tendones glúteos, activar la cadera y controlar la carga lateral sin irritar la zona.",
+        calentamiento: [
+          "Respiración diafragmática — 2 x 5 respiraciones",
+          "Movilidad de cadera en 90/90 suave — 2 x 6 por lado",
+          "Puente de glúteos — 2 x 8"
+        ],
+        central: [
+          "Clamshell — 2 x 12 por lado",
+          "Abducción de cadera lateral — 2 x 10 por lado",
+          "Puente de glúteos con pausa — 2 x 10"
+        ],
+        estiramientos: [
+          "Piriforme — 25 segundos por lado",
+          "Flexor de cadera — 25 segundos por lado",
+          "Glúteo suave — 25 segundos por lado"
+        ]
+      },
+
+      "Dolor lateral de cadera": {
+        porque: "La prioridad es descargar la zona lateral de la cadera, mejorar el control pélvico y activar glúteo medio de forma progresiva.",
+        calentamiento: [
+          "Movilidad de cadera suave — 2 x 8 por lado",
+          "Basculaciones pélvicas — 2 x 8",
+          "Puente de glúteos corto rango — 2 x 8"
+        ],
+        central: [
+          "Clamshell en rango cómodo — 2 x 10 por lado",
+          "Isométrico de abducción contra pared — 2 x 15 segundos por lado",
+          "Bird Dog — 2 x 8 por lado"
+        ],
+        estiramientos: [
+          "Flexor de cadera — 25 segundos por lado",
+          "Piriforme suave — 25 segundos por lado",
+          "Movilidad final cómoda — 20 segundos"
+        ]
+      },
+
+      "Rigidez de cadera": {
+        porque: "Esta rutina prioriza movilidad de cadera y control del rango para que la articulación se sienta más libre y estable.",
+        calentamiento: [
+          "Movilidad 90/90 — 2 x 6 por lado",
+          "Círculos de cadera — 2 x 8 por lado",
+          "Marcha controlada — 2 x 10"
+        ],
+        central: [
+          "Puente de glúteos — 2 x 10",
+          "Sentadilla a silla en rango cómodo — 2 x 8",
+          "Step lateral suave — 2 x 8 por lado"
+        ],
+        estiramientos: [
+          "Flexor de cadera — 30 segundos por lado",
+          "Aductores suave — 25 segundos",
+          "Piriforme — 25 segundos por lado"
+        ]
+      },
+
+      "Dolor al correr": {
+        porque: "La rutina busca mejorar la estabilidad de cadera y la tolerancia a la carga repetida que aparece al correr.",
+        calentamiento: [
+          "Marcha activa — 1 minuto",
+          "Movilidad de cadera — 2 x 8 por lado",
+          "Puente de glúteos — 2 x 8"
+        ],
+        central: [
+          "Clamshell — 2 x 12 por lado",
+          "Step down bajo y controlado — 2 x 8 por lado",
+          "Peso muerto unilateral asistido — 2 x 8 por lado"
+        ],
+        estiramientos: [
+          "Flexor de cadera — 25 segundos por lado",
+          "Glúteo — 25 segundos por lado",
+          "Isquiotibiales — 25 segundos por lado"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Esta es una rutina general para molestias de cadera cuando la causa exacta no está clara o cambia durante el día.",
+        calentamiento: [
+          "Movilidad de cadera suave — 2 x 8",
+          "Puente de glúteos — 2 x 8",
+          "Marcha controlada — 2 x 10"
+        ],
+        central: [
+          "Clamshell — 2 x 10 por lado",
+          "Bird Dog — 2 x 8 por lado",
+          "Sentadilla a silla suave — 2 x 8"
+        ],
+        estiramientos: [
+          "Flexor de cadera — 25 segundos por lado",
+          "Piriforme — 25 segundos por lado",
+          "Movilidad cómoda — 20 segundos"
+        ]
+      }
+    };
+
+    const rutinasMano = {
+      "Tendinitis muñeca": {
+        porque: "Esta rutina busca bajar la irritación de muñeca, mejorar la movilidad y recuperar tolerancia progresiva al uso de la mano.",
+        calentamiento: [
+          "Abrir y cerrar mano — 2 x 15",
+          "Movilidad de muñeca suave — 2 x 10",
+          "Deslizamientos de dedos — 2 x 8"
+        ],
+        central: [
+          "Isométrico de extensión de muñeca — 2 x 15 segundos",
+          "Isométrico de flexión de muñeca — 2 x 15 segundos",
+          "Agarre suave con pelota — 2 x 10"
+        ],
+        estiramientos: [
+          "Flexores de muñeca — 25 segundos por lado",
+          "Extensores de muñeca — 25 segundos por lado",
+          "Sacudidas suaves de manos — 20 segundos"
+        ]
+      },
+
+      "Dolor por sobreuso": {
+        porque: "La prioridad es descargar la mano, disminuir fatiga acumulada y reactivar de forma suave sin aumentar la molestia.",
+        calentamiento: [
+          "Movilidad de dedos — 2 x 15",
+          "Movilidad de muñeca — 2 x 10",
+          "Rotaciones suaves de antebrazo — 2 x 8"
+        ],
+        central: [
+          "Agarre suave — 2 x 12",
+          "Extensión de dedos con banda suave — 2 x 10",
+          "Control de muñeca en rango cómodo — 2 x 10"
+        ],
+        estiramientos: [
+          "Flexores de muñeca — 25 segundos",
+          "Extensores de muñeca — 25 segundos",
+          "Relajación de mano — 20 segundos"
+        ]
+      },
+
+      "Rigidez dedos o muñeca": {
+        porque: "Esta rutina se enfoca en recuperar movilidad de dedos y muñeca con movimientos suaves y repetidos.",
+        calentamiento: [
+          "Abrir y cerrar mano — 2 x 15",
+          "Deslizamiento de tendones de dedos — 2 x 8",
+          "Movilidad de muñeca — 2 x 10"
+        ],
+        central: [
+          "Flexión y extensión de muñeca activa — 2 x 10",
+          "Separación de dedos — 2 x 10",
+          "Pinza suave dedo-pulgar — 2 x 8 por dedo"
+        ],
+        estiramientos: [
+          "Flexores de muñeca — 20 segundos",
+          "Extensores de muñeca — 20 segundos",
+          "Movilidad final cómoda — 20 segundos"
+        ]
+      },
+
+      "Hormigueo / túnel carpiano": {
+        porque: "Esta rutina es conservadora. Busca mover la zona sin aumentar el hormigueo y dar espacio a muñeca y antebrazo.",
+        calentamiento: [
+          "Respiración lenta — 2 x 5 respiraciones",
+          "Movilidad suave de muñeca — 2 x 8",
+          "Abrir y cerrar mano sin fuerza — 2 x 10"
+        ],
+        central: [
+          "Deslizamiento neural suave — 2 x 5 por lado",
+          "Retracción escapular suave — 2 x 10",
+          "Movilidad de dedos controlada — 2 x 8"
+        ],
+        estiramientos: [
+          "Flexores de muñeca suave — 20 segundos",
+          "Pectoral suave en pared — 20 segundos por lado",
+          "Relajación de mano — 20 segundos"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Rutina general para molestias de mano o muñeca cuando la causa específica no está clara.",
+        calentamiento: [
+          "Abrir y cerrar mano — 2 x 12",
+          "Movilidad de muñeca — 2 x 8",
+          "Rotaciones de antebrazo — 2 x 8"
+        ],
+        central: [
+          "Agarre suave — 2 x 10",
+          "Control de muñeca — 2 x 8",
+          "Separación de dedos — 2 x 10"
+        ],
+        estiramientos: [
+          "Flexores de muñeca — 20 segundos",
+          "Extensores de muñeca — 20 segundos",
+          "Movilidad cómoda — 20 segundos"
+        ]
+      }
+    };
+
+
+    const rutinasLumbar = {
+      "Lumbalgia muscular": {
+        porque: "La prioridad es disminuir tensión lumbar, recuperar movimiento y mejorar el control del tronco sin irritar la zona.",
+        calentamiento: [
+          "Respiración diafragmática — 2 x 5 respiraciones",
+          "Basculaciones pélvicas — 2 x 8",
+          "Cat-Camel suave — 2 x 6"
+        ],
+        central: [
+          "Puente de glúteos — 2 x 10",
+          "Bird Dog — 2 x 8 por lado",
+          "Pallof Press — 2 x 10"
+        ],
+        estiramientos: [
+          "Rodillas al pecho — 25 segundos",
+          "Piriforme — 25 segundos por lado",
+          "Flexor de cadera — 25 segundos por lado"
+        ]
+      },
+
+      "Rigidez lumbar": {
+        porque: "El objetivo es recuperar movilidad lumbar y de cadera sin generar irritación.",
+        calentamiento: [
+          "Cat-Camel — 2 x 8",
+          "Basculaciones pélvicas — 2 x 10",
+          "Rotaciones lumbares suaves — 2 x 6 por lado"
+        ],
+        central: [
+          "Bird Dog — 2 x 8 por lado",
+          "Puente de glúteos — 2 x 10",
+          "Dead Bug — 2 x 8 por lado"
+        ],
+        estiramientos: [
+          "Rodillas al pecho — 25 segundos",
+          "Rotación lumbar suave — 20 segundos por lado",
+          "Flexor de cadera — 25 segundos por lado"
+        ]
+      },
+
+      "Dolor al estar sentada": {
+        porque: "Esta rutina busca compensar el tiempo sentado activando glúteos, cadera y control del tronco.",
+        calentamiento: [
+          "Marcha en el lugar — 1 minuto",
+          "Basculaciones pélvicas — 2 x 8",
+          "Cat-Camel — 2 x 6"
+        ],
+        central: [
+          "Puente de glúteos — 2 x 12",
+          "Bird Dog — 2 x 8 por lado",
+          "Pallof Press — 2 x 10"
+        ],
+        estiramientos: [
+          "Flexor de cadera — 30 segundos por lado",
+          "Piriforme — 25 segundos por lado",
+          "Isquiotibiales — 25 segundos por lado"
+        ]
+      },
+
+      "Dolor al inclinarme": {
+        porque: "Se busca mejorar el control del movimiento de flexión y aumentar la tolerancia lumbar de forma progresiva.",
+        calentamiento: [
+          "Basculaciones pélvicas — 2 x 8",
+          "Cat-Camel — 2 x 6",
+          "Respiración diafragmática — 2 x 5 respiraciones"
+        ],
+        central: [
+          "Puente de glúteos — 2 x 10",
+          "Dead Bug — 2 x 8 por lado",
+          "Bird Dog — 2 x 8 por lado"
+        ],
+        estiramientos: [
+          "Piriforme — 25 segundos por lado",
+          "Rodillas al pecho — 25 segundos",
+          "Flexor de cadera — 25 segundos por lado"
+        ]
+      },
+
+      "Dolor que baja a pierna": {
+        porque: "Esta rutina es más conservadora y busca moverte sin aumentar síntomas hacia la pierna.",
+        calentamiento: [
+          "Respiración diafragmática — 2 x 5 respiraciones",
+          "Basculaciones pélvicas suaves — 2 x 6",
+          "Movilidad lumbar cómoda — 2 x 5"
+        ],
+        central: [
+          "Bird Dog suave — 2 x 6 por lado",
+          "Puente de glúteos corto rango — 2 x 8",
+          "Pallof Press suave — 2 x 8"
+        ],
+        estiramientos: [
+          "Piriforme suave — 20 segundos por lado",
+          "Flexor de cadera — 20 segundos por lado",
+          "Movilidad cómoda — 20 segundos"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Rutina general segura para molestias lumbares cuando la causa exacta no está clara.",
+        calentamiento: [
+          "Cat-Camel — 2 x 6",
+          "Basculaciones pélvicas — 2 x 8",
+          "Respiración diafragmática — 2 x 5 respiraciones"
+        ],
+        central: [
+          "Puente de glúteos — 2 x 10",
+          "Bird Dog — 2 x 8 por lado",
+          "Pallof Press — 2 x 10"
+        ],
+        estiramientos: [
+          "Rodillas al pecho — 25 segundos",
+          "Piriforme — 25 segundos por lado",
+          "Flexor de cadera — 25 segundos por lado"
+        ]
+      }
+    };
+
+    const rutinasRodilla = {
+      "Dolor patelofemoral": {
+        porque: "Esta rutina busca mejorar el control de cadera y rodilla, disminuir sobrecarga anterior y favorecer una mejor alineación.",
+        calentamiento: [
+          "Marcha activa — 1 minuto",
+          "Movilidad de tobillo — 2 x 8 por lado",
+          "Activación de glúteo medio — 2 x 10 por lado"
+        ],
+        central: [
+          "Sentadilla a silla en rango cómodo — 2 x 8",
+          "Step down bajo y controlado — 2 x 8 por lado",
+          "Puente de glúteos — 2 x 10"
+        ],
+        estiramientos: [
+          "Cuádriceps — 25 segundos por lado",
+          "Flexor de cadera — 25 segundos por lado",
+          "Pantorrilla — 25 segundos por lado"
+        ]
+      },
+
+      "Tendinopatía rotuliana": {
+        porque: "La prioridad es dar carga progresiva al tendón rotuliano, controlar el dolor y mejorar tolerancia al esfuerzo.",
+        calentamiento: [
+          "Bicicleta o marcha suave — 2 minutos",
+          "Movilidad de rodilla — 2 x 10",
+          "Sentadilla parcial lenta — 2 x 6"
+        ],
+        central: [
+          "Wall sit isométrico — 3 x 20 segundos",
+          "Sentadilla parcial controlada — 2 x 8",
+          "Elevación de talones — 2 x 12"
+        ],
+        estiramientos: [
+          "Cuádriceps — 25 segundos por lado",
+          "Isquiotibiales — 25 segundos por lado",
+          "Pantorrilla — 25 segundos por lado"
+        ]
+      },
+
+      "Sobrecarga por correr": {
+        porque: "Esta rutina ayuda a descargar la rodilla, activar cadera y mejorar el control para tolerar mejor la carga repetida de correr.",
+        calentamiento: [
+          "Marcha activa — 1 minuto",
+          "Movilidad de cadera — 2 x 8 por lado",
+          "Movilidad de tobillo — 2 x 8 por lado"
+        ],
+        central: [
+          "Puente de glúteos — 2 x 10",
+          "Step up bajo — 2 x 8 por lado",
+          "Clamshell — 2 x 12 por lado"
+        ],
+        estiramientos: [
+          "Cuádriceps — 25 segundos por lado",
+          "Glúteo — 25 segundos por lado",
+          "Pantorrilla — 25 segundos por lado"
+        ]
+      },
+
+      "Molestia al bajar escaleras": {
+        porque: "Se busca mejorar el control excéntrico de la rodilla y la estabilidad de cadera al bajar.",
+        calentamiento: [
+          "Marcha suave — 1 minuto",
+          "Movilidad de rodilla — 2 x 10",
+          "Activación de glúteo — 2 x 10"
+        ],
+        central: [
+          "Step down bajo lento — 2 x 6 por lado",
+          "Sentadilla a silla — 2 x 8",
+          "Peso muerto unilateral asistido — 2 x 8 por lado"
+        ],
+        estiramientos: [
+          "Cuádriceps — 25 segundos por lado",
+          "Isquiotibiales — 25 segundos por lado",
+          "Flexor de cadera — 25 segundos por lado"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Rutina general para molestias de rodilla cuando la causa exacta no está clara.",
+        calentamiento: [
+          "Marcha activa — 1 minuto",
+          "Movilidad de rodilla — 2 x 8",
+          "Movilidad de tobillo — 2 x 8"
+        ],
+        central: [
+          "Sentadilla a silla suave — 2 x 8",
+          "Puente de glúteos — 2 x 10",
+          "Step up bajo — 2 x 8 por lado"
+        ],
+        estiramientos: [
+          "Cuádriceps — 20 segundos por lado",
+          "Isquiotibiales — 20 segundos por lado",
+          "Pantorrilla — 20 segundos por lado"
+        ]
+      }
+    };
+
+    const rutinasTobillo = {
+      "Esguince previo / inestabilidad": {
+        porque: "Esta rutina prioriza estabilidad, propiocepción y control del tobillo para disminuir sensación de inseguridad.",
+        calentamiento: [
+          "Movilidad de tobillo en círculos — 2 x 8 por lado",
+          "Flexión y extensión de tobillo — 2 x 10",
+          "Marcha controlada — 1 minuto"
+        ],
+        central: [
+          "Equilibrio a una pierna — 3 x 20 segundos por lado",
+          "Tibial posterior con banda — 2 x 12 por lado",
+          "Elevación de talones — 2 x 12"
+        ],
+        estiramientos: [
+          "Gemelo — 25 segundos por lado",
+          "Sóleo — 25 segundos por lado",
+          "Movilidad cómoda de tobillo — 20 segundos"
+        ]
+      },
+
+      "Tendinopatía": {
+        porque: "La idea es dar carga progresiva al tendón del tobillo, controlando la irritación y mejorando tolerancia.",
+        calentamiento: [
+          "Movilidad de tobillo — 2 x 10",
+          "Marcha suave — 1 minuto",
+          "Elevaciones de talón suaves — 2 x 8"
+        ],
+        central: [
+          "Elevación de talones bilateral — 3 x 10",
+          "Isométrico de pantorrilla — 3 x 20 segundos",
+          "Tibial posterior con banda — 2 x 12"
+        ],
+        estiramientos: [
+          "Gemelo — 25 segundos por lado",
+          "Sóleo — 25 segundos por lado",
+          "Planta del pie suave — 20 segundos"
+        ]
+      },
+
+      "Rigidez de tobillo": {
+        porque: "Esta rutina busca recuperar movilidad de tobillo y mejorar el rango para caminar, correr o bajar escaleras.",
+        calentamiento: [
+          "Círculos de tobillo — 2 x 8 por lado",
+          "Rodilla a la pared — 2 x 8 por lado",
+          "Marcha en puntas y talones — 1 minuto"
+        ],
+        central: [
+          "Rodilla a la pared controlado — 2 x 10 por lado",
+          "Elevación de talones — 2 x 12",
+          "Equilibrio a una pierna — 2 x 20 segundos"
+        ],
+        estiramientos: [
+          "Gemelo — 30 segundos por lado",
+          "Sóleo — 30 segundos por lado",
+          "Movilidad final de tobillo — 20 segundos"
+        ]
+      },
+
+      "Dolor al apoyar": {
+        porque: "Esta rutina es más cuidadosa y busca recuperar confianza al apoyo sin aumentar la molestia.",
+        calentamiento: [
+          "Movilidad de tobillo suave — 2 x 8",
+          "Apoyo progresivo de pie — 2 x 10 segundos",
+          "Marcha suave en el lugar — 1 minuto"
+        ],
+        central: [
+          "Cambio de peso lado a lado — 2 x 10",
+          "Elevación de talones asistida — 2 x 8",
+          "Equilibrio asistido — 2 x 15 segundos"
+        ],
+        estiramientos: [
+          "Gemelo suave — 20 segundos por lado",
+          "Sóleo suave — 20 segundos por lado",
+          "Movilidad cómoda — 20 segundos"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Rutina general para molestias de tobillo cuando la causa exacta no está clara.",
+        calentamiento: [
+          "Movilidad de tobillo — 2 x 8",
+          "Marcha suave — 1 minuto",
+          "Flexión y extensión de tobillo — 2 x 10"
+        ],
+        central: [
+          "Equilibrio a una pierna asistido — 2 x 20 segundos",
+          "Elevación de talones — 2 x 10",
+          "Tibial posterior con banda — 2 x 12"
+        ],
+        estiramientos: [
+          "Gemelo — 20 segundos por lado",
+          "Sóleo — 20 segundos por lado",
+          "Movilidad cómoda — 20 segundos"
+        ]
+      }
+    };
+
+    const rutinasPie = {
+      "Fascitis plantar": {
+        porque: "Esta rutina busca descargar la planta del pie, activar musculatura intrínseca y mejorar tolerancia al apoyo.",
+        calentamiento: [
+          "Automasaje plantar suave — 1 minuto",
+          "Movilidad de dedos — 2 x 10",
+          "Flexión y extensión de tobillo — 2 x 10"
+        ],
+        central: [
+          "Short foot — 3 x 20 segundos",
+          "Elevación de talones — 2 x 10",
+          "Arrugar toalla con dedos — 2 x 10"
+        ],
+        estiramientos: [
+          "Planta del pie — 25 segundos por lado",
+          "Gemelo — 25 segundos por lado",
+          "Sóleo — 25 segundos por lado"
+        ]
+      },
+
+      "Dolor arco plantar": {
+        porque: "La prioridad es mejorar el control del arco del pie y disminuir la sobrecarga durante el apoyo.",
+        calentamiento: [
+          "Movilidad de dedos — 2 x 10",
+          "Automasaje plantar suave — 1 minuto",
+          "Movilidad de tobillo — 2 x 8"
+        ],
+        central: [
+          "Short foot — 3 x 20 segundos",
+          "Equilibrio asistido — 2 x 20 segundos",
+          "Elevación de talones lenta — 2 x 10"
+        ],
+        estiramientos: [
+          "Planta del pie — 25 segundos",
+          "Gemelo — 25 segundos por lado",
+          "Flexores de dedos suave — 20 segundos"
+        ]
+      },
+
+      "Metatarsalgia": {
+        porque: "Esta rutina busca bajar la carga en el antepié, mejorar movilidad de dedos y distribuir mejor el apoyo.",
+        calentamiento: [
+          "Movilidad de dedos — 2 x 10",
+          "Separación de dedos — 2 x 8",
+          "Movilidad de tobillo — 2 x 8"
+        ],
+        central: [
+          "Short foot suave — 2 x 20 segundos",
+          "Apoyo talón-punta controlado — 2 x 8",
+          "Equilibrio asistido — 2 x 15 segundos"
+        ],
+        estiramientos: [
+          "Planta del pie suave — 20 segundos",
+          "Gemelo — 20 segundos por lado",
+          "Movilidad final de dedos — 20 segundos"
+        ]
+      },
+
+      "Rigidez del pie": {
+        porque: "El objetivo es recuperar movilidad del pie y dedos para mejorar el apoyo y la sensación de estabilidad.",
+        calentamiento: [
+          "Movilidad de dedos — 2 x 10",
+          "Círculos de tobillo — 2 x 8",
+          "Automasaje plantar — 1 minuto"
+        ],
+        central: [
+          "Arrugar toalla con dedos — 2 x 10",
+          "Short foot — 2 x 20 segundos",
+          "Elevación de talones — 2 x 10"
+        ],
+        estiramientos: [
+          "Planta del pie — 25 segundos",
+          "Gemelo — 25 segundos por lado",
+          "Movilidad cómoda de dedos — 20 segundos"
+        ]
+      },
+
+      "No estoy segura / otro": {
+        porque: "Rutina general para molestias de pie cuando la causa exacta no está clara.",
+        calentamiento: [
+          "Automasaje plantar suave — 1 minuto",
+          "Movilidad de dedos — 2 x 10",
+          "Movilidad de tobillo — 2 x 8"
+        ],
+        central: [
+          "Short foot — 2 x 20 segundos",
+          "Elevación de talones — 2 x 10",
+          "Equilibrio asistido — 2 x 20 segundos"
+        ],
+        estiramientos: [
+          "Planta del pie — 20 segundos",
+          "Gemelo — 20 segundos por lado",
+          "Movilidad cómoda — 20 segundos"
+        ]
+      }
+    };
+
+
+
+    function entrarAlEbook(){
+      const nombreInput = document.getElementById("nombreInput");
+      const instagramInput = document.getElementById("instagramInput");
+      const accessOverlay = document.getElementById("accessOverlay");
+      const accessError = document.getElementById("accessError");
+
+      const nombre = nombreInput ? nombreInput.value.trim() : "";
+      let instagram = instagramInput ? instagramInput.value.trim() : "";
+
+      if(instagram && !instagram.startsWith("@")){
+        instagram = "@" + instagram;
+      }
+
+      if(!nombre || !instagram){
+        if(accessError) accessError.classList.add("active");
+        return;
+      }
+
+      userState.nombre = nombre;
+      userState.instagram = instagram;
+      userState.estado = "entró al ebook";
+
+      if(accessError) accessError.classList.remove("active");
+
+      // PRIMER GUARDADO: apenas aprieta “Entrar al ebook interactivo”
+      // Guarda fecha, nombre e Instagram en Google Sheets.
+      guardarRespuesta("entró al ebook");
+
+      // Pequeña pausa para darle tiempo al envío antes de ocultar el modal.
+      setTimeout(() => {
+        if(accessOverlay) accessOverlay.style.display = "none";
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }, 350);
+    }
+
+    function guardarRespuesta(estado = "actualización"){
+      if(!userState.nombre || !userState.instagram) return;
+
+      userState.estado = estado;
+
+      const payload = {
+        sessionId: userState.sessionId || "",
+        estado: userState.estado || "",
+        nombre: userState.nombre || "",
+        instagram: userState.instagram || "",
+        dolor: userState.dolorRespondido ? userState.dolor : "",
+        rigidez: userState.rigidezRespondido ? userState.rigidez : "",
+        energia: userState.energia || "",
+        tiempo: userState.tiempo || "",
+        zona: userState.zona || "",
+        patologia: userState.patologia || ""
+      };
+
+      const params = new URLSearchParams(payload);
+
+      // Método principal: GET con imagen invisible.
+      // Es el método más simple para Apps Script y evita problemas de CORS.
+      const img = new Image();
+      img.src = SCRIPT_URL + "?" + params.toString() + "&t=" + Date.now();
+
+      // Respaldo: intento POST también.
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+    }
+
+    function closeAllZonePanels(){
+      document.querySelectorAll(".zone-panel").forEach(panel => {
+        panel.classList.remove("active");
+      });
+
+      const overlay = document.getElementById("zoneOverlay");
+      if(overlay) overlay.classList.remove("active");
+    }
+
+    function togglePanel(id){
+      const panel = document.getElementById(id);
+      if(!panel) return;
+
+      const isZonePanel = panel.classList.contains("zone-panel");
+
+      if(isZonePanel){
+        const alreadyOpen = panel.classList.contains("active");
+        closeAllZonePanels();
+
+        if(!alreadyOpen){
+          document.body.appendChild(panel);
+          panel.classList.add("active");
+
+          const overlay = document.getElementById("zoneOverlay");
+          if(overlay) overlay.classList.add("active");
+        }
+
+        return;
+      }
+
+      panel.classList.toggle("active");
+    }
+
+    function actualizarValor(id, value){
+      const el = document.getElementById(id);
+      if(el) el.textContent = value;
+
+      if(id === "dolorValue"){
+        userState.dolor = Number(value);
+        userState.dolorRespondido = true;
+
+        const btn = document.getElementById("confirmDolorBtn");
+        if(btn){
+          btn.textContent = "Dolor respondido: " + value + "/10";
+          btn.classList.add("confirmed");
+        }
+        guardarRespuesta("respondió dolor");
+      }
+
+      if(id === "rigidezValue"){
+        userState.rigidez = Number(value);
+        userState.rigidezRespondido = true;
+
+        const btn = document.getElementById("confirmRigidezBtn");
+        if(btn){
+          btn.textContent = "Rigidez respondida: " + value + "/10";
+          btn.classList.add("confirmed");
+        }
+        guardarRespuesta("respondió rigidez");
+      }
+    }
+
+    function confirmarSlider(tipo){
+      if(tipo === "dolor"){
+        const valor = document.getElementById("dolorValue").textContent;
+        userState.dolor = Number(valor);
+        userState.dolorRespondido = true;
+
+        const btn = document.getElementById("confirmDolorBtn");
+        if(btn){
+          btn.textContent = "Dolor confirmado: " + valor + "/10";
+          btn.classList.add("confirmed");
+        }
+        guardarRespuesta("confirmó dolor");
+      }
+
+      if(tipo === "rigidez"){
+        const valor = document.getElementById("rigidezValue").textContent;
+        userState.rigidez = Number(valor);
+        userState.rigidezRespondido = true;
+
+        const btn = document.getElementById("confirmRigidezBtn");
+        if(btn){
+          btn.textContent = "Rigidez confirmada: " + valor + "/10";
+          btn.classList.add("confirmed");
+        }
+        guardarRespuesta("confirmó rigidez");
+      }
+    }
+
+    function respuestasCompletas(){
+      return (
+        userState.dolorRespondido === true &&
+        userState.rigidezRespondido === true &&
+        userState.energia !== "" &&
+        userState.tiempo !== ""
+      );
+    }
+
+    function mostrarAvisoCompletar(){
+      const resultZona = document.getElementById("resultZona");
+      const resultPatologia = document.getElementById("resultPatologia");
+      const resultTexto = document.getElementById("resultTexto");
+      const resultOverlay = document.getElementById("resultOverlay");
+      const contenedor = document.getElementById("rutinaContenido");
+
+      if(resultZona) resultZona.textContent = "Completa tu estado";
+      if(resultPatologia) resultPatologia.textContent = "Rutina bloqueada";
+
+      if(resultTexto){
+        const faltantes = [];
+
+        if(!userState.dolorRespondido) faltantes.push("Dolor");
+        if(!userState.rigidezRespondido) faltantes.push("Rigidez");
+        if(userState.energia === "") faltantes.push("Energía");
+        if(userState.tiempo === "") faltantes.push("Tiempo disponible");
+
+        resultTexto.innerHTML = `
+          Para desbloquear tu rutina personalizada primero completa:
+          <br><br>
+          ${faltantes.map(item => "• " + item).join("<br>")}
+          <br><br>
+          Luego vuelve a elegir la patología asociada a la articulación.
+        `;
+      }
+
+      if(contenedor){
+        contenedor.innerHTML = `
+          <div class="routine-summary">
+            Todavía falta información para calcular una rutina segura y adaptada a ti.
+          </div>
+        `;
+      }
+
+      closeAllZonePanels();
+
+      if(resultOverlay) resultOverlay.classList.add("active");
+      document.body.classList.add("no-scroll");
+    }
+
+    function selectChip(button){
+      const panel = button.closest(".inline-panel");
+      if(!panel) return;
+
+      panel.querySelectorAll(".chip").forEach(chip => chip.classList.remove("active"));
+      button.classList.add("active");
+
+      if(panel.id === "energiaPanel"){
+        userState.energia = button.textContent.trim();
+        guardarRespuesta("respondió energía");
+        return;
+      }
+
+      if(panel.id === "tiempoPanel"){
+        userState.tiempo = button.textContent.trim();
+        guardarRespuesta("respondió tiempo");
+        return;
+      }
+
+      if(panel.classList.contains("zone-panel")){
+        const zona = zonasPorPanel[panel.id] || "Zona seleccionada";
+        const patologia = button.textContent.trim();
+
+        userState.zona = zona;
+        userState.patologia = patologia;
+        guardarRespuesta("eligió zona/patología");
+
+        openResult(zona, patologia);
+      }
+    }
+
+    function getRutinaBase(zona, patologia){
+      if(zona === "Cervical"){
+        return rutinasCervical[patologia] || null;
+      }
+
+      if(zona === "Hombro"){
+        return rutinasHombro[patologia] || null;
+      }
+
+      if(zona === "Codo"){
+        return rutinasCodo[patologia] || null;
+      }
+
+      if(zona === "Cadera"){
+        return rutinasCadera[patologia] || null;
+      }
+
+      if(zona === "Mano"){
+        return rutinasMano[patologia] || null;
+      }
+
+      if(zona === "Lumbar"){
+        return rutinasLumbar[patologia] || null;
+      }
+
+      if(zona === "Rodilla"){
+        return rutinasRodilla[patologia] || null;
+      }
+
+      if(zona === "Tobillo"){
+        return rutinasTobillo[patologia] || null;
+      }
+
+      if(zona === "Pie"){
+        return rutinasPie[patologia] || null;
+      }
+
+      return null;
+    }
+
+    function ajustarRutinaPorEstado(rutina){
+      if(!rutina) return null;
+
+      const dolor = userState.dolor;
+      const rigidez = userState.rigidez;
+      const energia = userState.energia || "Media";
+      const tiempo = userState.tiempo || "20 min";
+
+      let intensidad = "moderada";
+
+      if(dolor >= 7 || energia === "Baja"){
+        intensidad = "suave";
+      }else if(dolor <= 3 && energia === "Alta"){
+        intensidad = "progresiva";
+      }
+
+      let calentamiento = [...rutina.calentamiento];
+      let central = [...rutina.central];
+      let estiramientos = [...rutina.estiramientos];
+
+      if(tiempo === "10 min"){
+        calentamiento = calentamiento.slice(0, 2);
+        central = central.slice(0, 2);
+        estiramientos = estiramientos.slice(0, 2);
+      }
+
+      if(tiempo === "45 min"){
+        calentamiento = [...calentamiento, "Movilidad extra en rango cómodo — 1 x 6 por lado"];
+        central = [
+          ...central,
+          "Pausa de control postural — 1 x 60 segundos",
+          "Serie extra del ejercicio principal — 1 ronda adicional"
+        ];
+        estiramientos = [...estiramientos, "Estiramiento extra de la zona trabajada — 25 segundos"];
+      }
+
+      if(dolor >= 7){
+        central = central.map(ej => ej.replace("2 x 10", "2 x 8").replace("2 x 12", "2 x 10"));
+      }
+
+      if(rigidez >= 7){
+        calentamiento = [...calentamiento, "Movilidad extra de la zona en rango cómodo — 1 x 5 por lado"];
+      }
+
+      return {
+        porque: rutina.porque,
+        intensidad,
+        tiempo,
+        calentamiento,
+        central,
+        estiramientos
+      };
+    }
+
+    function getDescansoPorFase(fase, rutina){
+      const intensidad = rutina?.intensidad || "moderada";
+      const tiempo = rutina?.tiempo || "20 min";
+
+      if(fase === "calentamiento"){
+        return intensidad === "suave" ? "15–20 segundos" : "20–30 segundos";
+      }
+
+      if(fase === "central"){
+        if(intensidad === "suave") return "45–60 segundos";
+        if(intensidad === "progresiva") return tiempo === "45 min" ? "45–60 segundos" : "30–45 segundos";
+        return "40–50 segundos";
+      }
+
+      if(fase === "estiramientos"){
+        return "10–20 segundos entre lado y lado";
+      }
+
+      return "30–45 segundos";
+    }
+
+    function renderEjercicioConDescanso(item, fase, rutina){
+      const descanso = getDescansoPorFase(fase, rutina);
+      return `<li>${item}<span class="rest-note">Descanso: ${descanso}</span></li>`;
+    }
+
+    function mostrarRutina(rutina){
+      const contenedor = document.getElementById("rutinaContenido");
+      if(!contenedor) return;
+
+      if(!rutina){
+        contenedor.innerHTML = `
+          <div class="routine-summary">
+            Esta zona todavía no tiene rutina cargada. Podemos agregarla en el siguiente paso.
+          </div>
+        `;
+        return;
+      }
+
+      contenedor.innerHTML = `
+        <div class="routine-summary">
+          dolor ${userState.dolor}/10, rigidez ${userState.rigidez}/10,
+          energía ${userState.energia || "media"} y tiempo ${userState.tiempo || "20 min"}.
+          Intensidad sugerida: ${rutina.intensidad}.
+        </div>
+
+        <div class="routine-phase">
+          <h4>🔥 Calentamiento</h4>
+          <ul>${rutina.calentamiento.map(item => renderEjercicioConDescanso(item, "calentamiento", rutina)).join("")}</ul>
+        </div>
+
+        <div class="routine-phase">
+          <h4>🏋️ Fase central</h4>
+          <ul>${rutina.central.map(item => renderEjercicioConDescanso(item, "central", rutina)).join("")}</ul>
+        </div>
+
+        <div class="routine-phase">
+          <h4>🧘 Estiramientos</h4>
+          <ul>${rutina.estiramientos.map(item => renderEjercicioConDescanso(item, "estiramientos", rutina)).join("")}</ul>
+        </div>
+
+        <div class="routine-warning">
+          Esto es solo el comienzo.
+          MoveSmart completo incluye tu plan personalizado,
+          videos guiados y acompañamiento en cada etapa.
+        </div>
+      `;
+    }
+
+    function openResult(zona, patologia){
+      if(!respuestasCompletas()){
+        mostrarAvisoCompletar();
+        return;
+      }
+
+      const resultZona = document.getElementById("resultZona");
+      const resultPatologia = document.getElementById("resultPatologia");
+      const resultTexto = document.getElementById("resultTexto");
+      const resultOverlay = document.getElementById("resultOverlay");
+
+      userState.zona = zona;
+      userState.patologia = patologia;
+
+      const rutinaBase = getRutinaBase(zona, patologia);
+      const rutinaAjustada = ajustarRutinaPorEstado(rutinaBase);
+
+      if(resultZona) resultZona.textContent = zona;
+      if(resultPatologia) resultPatologia.textContent = patologia;
+
+      if(resultTexto){
+        resultTexto.textContent = rutinaBase
+          ? rutinaBase.porque
+          : `Seleccionaste ${zona.toLowerCase()} y una molestia compatible con “${patologia}”. Vamos a priorizar una rutina segura, progresiva y adaptada a tu estado actual.`;
+      }
+
+      mostrarRutina(rutinaAjustada);
+      guardarRespuesta("respuesta completa");
+
+      closeAllZonePanels();
+
+      if(resultOverlay) resultOverlay.classList.add("active");
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeResult(){
+      const resultOverlay = document.getElementById("resultOverlay");
+      if(resultOverlay) resultOverlay.classList.remove("active");
+      document.body.classList.remove("no-scroll");
+    }
+  </script>
+</body>
+</html>
